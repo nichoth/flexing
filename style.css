@@ -1,0 +1,97 @@
+body {
+    width: 80%;
+    padding: 0.5em;
+    margin: 0 auto;
+    border: 1px solid;
+}
+
+/* row vs column
+ * there is a main axis and a cross axis. flex-direction define the main
+ * axis,
+ * row is default
+ */
+.container {
+    border: 1px solid green;
+    /* width: 500px; */
+    display: flex;
+    flex-direction: row-reverse;
+    flex-direction: column-reverse;
+    flex-direction: column;
+    flex-direction: row;
+    height: 300px;
+}
+
+/* main axis alignment
+ * how do we distribute space if the things don't fill all of the container?
+ * it's done with `justify-content`
+ * flex-start is default
+ */
+.container {
+    justify-content: flex-start;
+    justify-content: flex-end;
+    justify-content: flex-center;
+    justify-content: space-around;
+    justify-content: space-between;
+}
+
+
+/*
+ * cross axis alignment
+ * by default the flex items will stretch to fill the height of the container
+ */
+.container {
+    /* flex-start means they will be their normal height, placed at the top of
+    parent */
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: center;  /* vertically center them */
+    align-items: stretch; /* the default, equal height columns */
+    align-items: baseline; /* uses the top baseline of the items */
+}
+
+
+/*
+ * align self
+ * is applied to the child item
+ * used when you want a different alignment for a single item
+ * uses the same options as the align-items key
+ * if you set it to `auto` it will use the align-items setting on the parent
+ */
+.self {
+    align-self: center;
+}
+
+/* overflow */
+/* by default flex conatiners are single line, and excess will overflow */
+/* doing 'wrap' means it will add additional rows */
+.container {
+    flex-wrap: wrap;
+    /* shorthand for direction and wrap */
+    flex-flow: row wrap;
+}
+
+
+.item {
+    padding: 1em;
+    text-align: center;
+    width: 8em;
+    border: 1px solid magenta;
+}
+
+/*
+ * flex basis of 0 means it is based on the content size.
+ * flex-basis auto means content size is ignored, space is determined by
+ * available space.
+ * default is 0
+ */
+.flex1 {
+    /* shorthand */
+    /* flex-grow, flex-shrink, flex-basis */
+    flex: 1 1 100px;
+}
+
+.flex2 {
+    /* this will try to be twice the size of flex1 */
+    flex: 2 1 100px;
+}
+
