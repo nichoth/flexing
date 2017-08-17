@@ -5,6 +5,14 @@ body {
     border: 1px solid;
 }
 
+.item {
+    padding: 1em;
+    text-align: center;
+    width: 8em;
+    border: 1px solid magenta;
+}
+
+
 /* row vs column
  * there is a main axis and a cross axis. flex-direction define the main
  * axis,
@@ -27,11 +35,11 @@ body {
  * flex-start is default
  */
 .container {
-    justify-content: flex-start;
     justify-content: flex-end;
     justify-content: flex-center;
     justify-content: space-around;
     justify-content: space-between;
+    justify-content: flex-start; /* default */
 }
 
 
@@ -71,12 +79,30 @@ body {
 }
 
 
+/*
+ * what happens when there is a margin on the items?
+ * the cool thing is that vertical margins will not collapse
+ *
+ * margins are used to calculate the size of the element
+ * alignment sometimes ignores margins -- justify-content + space-around or
+ * space-between ignores margins. It's like the margins don't exist.
+ *
+ * margins will add space around the items if you use them with flex-grow
+ *
+ * margin: auto will make a margin the size of the available space, so
+ * you could use that on a single item in the container if you want to
+ * push the other items as far as possible
+ */
 .item {
-    padding: 1em;
-    text-align: center;
-    width: 8em;
-    border: 1px solid magenta;
+    margin: 2em;
 }
+
+
+/*
+ * Nesting
+ * You can nest flex containers. Meaning a flex item can also be a container
+ */
+
 
 /*
  * flex basis of 0 means it is based on the content size.
